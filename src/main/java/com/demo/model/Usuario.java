@@ -1,6 +1,10 @@
 package com.demo.model;
 
-import lombok.*;
+import lombok.Setter;
+import lombok.Getter;
+import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 
 @Setter
