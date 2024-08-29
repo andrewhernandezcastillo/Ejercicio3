@@ -10,6 +10,7 @@ import java.util.List;
 public class IServices implements Services{
 
     List<Usuario> users = new ArrayList<>();
+    Usuario user = new Usuario();
 
     @Override
     public Usuario addUser(Usuario usuario) {
@@ -28,6 +29,15 @@ public class IServices implements Services{
     @Override
     public List<Usuario> getUsers() {
         return this.users;
+    }
+
+    @Override
+    public Usuario putUser(Usuario usuario) {
+        this.user.setNombre(usuario.getNombre());
+        this.user.setApellido(usuario.getApellido());
+        this.user.setCorreo(usuario.getCorreo());
+        this.user.setEdad(usuario.getEdad());
+        return user;
     }
 
 

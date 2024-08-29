@@ -1,13 +1,10 @@
 package com.demo.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
 @Setter
 @Getter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Usuario {
 
     private String nombre;
