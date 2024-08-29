@@ -30,5 +30,19 @@ public class IServices implements Services{
         return this.users;
     }
 
+    @Override
+    public Usuario updateUser(String name, Usuario usuario) {
+        this.users = this.users.stream().map(item->{
+            if(item.getNombre().equals(name)){
+                item.setNombre(usuario.getNombre());
+                item.setApellido(usuario.getApellido());
+                item.setEdad(usuario.getEdad());
+                item.setCorreo(usuario.getCorreo());
+            }
+            return item;
+        }).toList();
+        return getUser(usuario.getNombre());
+    }
+
 
 }

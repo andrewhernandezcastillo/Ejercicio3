@@ -2,7 +2,7 @@ package com.demo.model;
 
 import lombok.*;
 
-@Data
+
 @Setter
 @Getter
 @Builder
