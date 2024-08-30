@@ -9,6 +9,6 @@ public interface Services {
     Usuario addUser(Usuario usuario);
     Usuario getUser(String name);
     List<Usuario> getUsers();
-    Usuario putUser(Usuario usuario);
+    List<Usuario> putUser(String name, Usuario usuario);
 
 }

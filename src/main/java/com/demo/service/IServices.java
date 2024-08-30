@@ -10,7 +10,6 @@ import java.util.List;
 public class IServices implements Services{
 
     List<Usuario> users = new ArrayList<>();
-    Usuario user = new Usuario();
 
     @Override
     public Usuario addUser(Usuario usuario) {
@@ -32,12 +31,19 @@ public class IServices implements Services{
     }
 
     @Override
-    public Usuario putUser(Usuario usuario) {
-        this.user.setNombre(usuario.getNombre());
-        this.user.setApellido(usuario.getApellido());
-        this.user.setCorreo(usuario.getCorreo());
-        this.user.setEdad(usuario.getEdad());
-        return user;
+    public List<Usuario> putUser(String name, Usuario usuario) {
+
+        this.users = this.users.stream().map(item->{
+            if(item.getNombre().equals(name)){
+                item.setEdad(usuario.getEdad());
+                item.setApellido(usuario.getApellido());
+                item.setNombre(usuario.getNombre());
+                item.setCorreo(usuario.getCorreo());
+            }
+            return item;
+        }).toList();
+
+        return this.users;
     }
 
 

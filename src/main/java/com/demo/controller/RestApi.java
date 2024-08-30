@@ -1,7 +1,7 @@
 package com.demo.controller;
 
 import com.demo.model.Usuario;
-import com.demo.service.IServices;
+import com.demo.service.Services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 public class RestApi {
 //Agregar Update como adicional
-    private final IServices services;
+    private final Services services;
 
     @GetMapping("api/v1/{name}")
     public Usuario getUserByName(@PathVariable String name) {
@@ -34,9 +33,9 @@ public class RestApi {
         return services.addUser(usuario);
     }
 
-    @PutMapping("api/v1")
-    public Usuario putUser(@RequestBody Usuario usuario){
-        return services.putUser(usuario);
+    @PutMapping("api/v1/{name}")
+    public List<Usuario> putUser(@PathVariable String name, @RequestBody Usuario usuario){
+        return services.putUser(name, usuario);
     }
 
 }
